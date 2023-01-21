@@ -32,10 +32,18 @@ console.log(result3); // 8
 AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - Explain, but don't code, how you would refactor this problem to take in an
   optional initial accumulator
+  - you could add another argument to the mySimpleReduce function called accumulator.
+  Then check if it is there (i.e. not undefined) and if it is, make initial accum equal to that,
+  and start for loop at 0 index.
 *******************************************************************************/
 
-let mySimpleReduce = function() {
-
+let mySimpleReduce = function(arr, cb) {
+    let accum = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        let el = arr[i];
+        accum = cb(accum, el);
+    }
+    return accum;
 };
 
 

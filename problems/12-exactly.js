@@ -27,13 +27,19 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-let exactly = function() {
-
+let exactly = function(arr, num, cb) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let el = arr[i];
+        if (cb(el) === true) {
+            count++;
+        }
+    }
+    if (count === num) {
+        return true;
+    }
+    else return false;
 };
-
-
-
-
 
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

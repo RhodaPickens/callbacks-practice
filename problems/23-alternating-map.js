@@ -34,11 +34,22 @@ console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper))
 // [ 'HEY!', '..everyone..', 'WHATS!', '..up??..' ]
 
 *******************************************************************************/
+// iterate through array
+// alternate callbacks
 
-
-let alternatingMap = function() {
-
+let alternatingMap = function(arr, cb1, cb2) {
+    let newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        let el = arr[i];
+        if (i % 2 === 0) {      // if the index is even then use callback 1
+            newArray.push(cb1(el));
+        } else {                // if the index is odd use callback 2
+            newArray.push(cb2(el));
+        }
+    }
+    return newArray;
 };
+
 
 
 
